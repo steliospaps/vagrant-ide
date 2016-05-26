@@ -26,7 +26,7 @@ then
 fi
 
         sudo wget -qO /opt/lombok.jar https://projectlombok.org/downloads/lombok.jar
-
+        sudo java -jar /opt/lombok.jar  install /opt/eclipse
 if [[ ! -f /etc/lightdm/lightdm.conf ]]
 then
        echo seting up autologin
