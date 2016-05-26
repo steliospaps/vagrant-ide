@@ -25,6 +25,8 @@ then
 	cd /opt/ && sudo tar -zxf /opt/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
 fi
 
+        sudo wget -qO /opt/lombok.jar https://projectlombok.org/downloads/lombok.jar
+
 if [[ ! -f /etc/lightdm/lightdm.conf ]]
 then
        echo seting up autologin
@@ -42,5 +44,7 @@ grep 192.168.0.7 /etc/hosts || echo 192.168.0.7 server-lan >> /etc/hosts
 sudo apt-get install -y --no-install-recommends git
 sudo apt-get install -y --no-install-recommends maven
 sudo apt-get install -y --no-install-recommends python3-pip
-sudo pip install git-remote-dropbox
+sudo pip3 install git-remote-dropbox
+echo copy ~/.git-remote-dropbox.json on machine:
+echo 'cat ~/.git-remote-dropbox.json | vagrant ssh '\''cat > ~/.git-remote-dropbox.json'\'
 sudo reboot 
