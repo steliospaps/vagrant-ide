@@ -45,6 +45,5 @@ sudo apt-get install -y --no-install-recommends git
 sudo apt-get install -y --no-install-recommends maven
 sudo apt-get install -y --no-install-recommends python3-pip
 sudo pip3 install git-remote-dropbox
-echo copy ~/.git-remote-dropbox.json on machine:
-echo 'cat ~/.git-remote-dropbox.json | vagrant ssh '\''cat > ~/.git-remote-dropbox.json'\'
+
 sudo reboot 
