@@ -8,8 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
-    v.cpus = 1
+    v.memory = 4096
+    v.cpus = 2
     v.gui = true
   end
   config.vm.network "private_network", ip: "10.0.1.101"
