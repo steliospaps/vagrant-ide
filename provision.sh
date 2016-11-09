@@ -2,10 +2,10 @@
 #sudo add-apt-repository -y ppa:webupd8team/java
 #sudo apt-get update
 #sudo apt-get -y upgrade
-apt-get install --no-install-recommends -y ubuntu-desktop
-sudo apt-get install -y virtualbox-guest-dkms 
-sudo apt-get install -y virtualbox-guest-utils 
-sudo apt-get install -y virtualbox-guest-x11
+apt-get install --no-install-recommends -y lubuntu-desktop
+sudo apt-get install --no-install-recommends -y virtualbox-guest-dkms 
+sudo apt-get install --no-install-recommends -y virtualbox-guest-utils 
+sudo apt-get install --no-install-recommends -y virtualbox-guest-x11
 
 sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 
@@ -50,5 +50,5 @@ sudo pip3 install git-remote-dropbox
 #sudo gpasswd -a vagrant docker
 #sudo apt-get install cgroup-bin
 
-
-sudo reboot 
+echo shutting down so that folders can be mounted correctly. please run vagrant up again
+sudo poweroff 
