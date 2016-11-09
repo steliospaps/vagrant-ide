@@ -1,7 +1,7 @@
 #see https://blog.versioneye.com/2015/05/05/setting-up-a-dev-environment-with-vagrant/
-sudo add-apt-repository -y ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get -y upgrade
+#sudo add-apt-repository -y ppa:webupd8team/java
+#sudo apt-get update
+#sudo apt-get -y upgrade
 apt-get install --no-install-recommends -y ubuntu-desktop
 sudo apt-get install -y virtualbox-guest-dkms 
 sudo apt-get install -y virtualbox-guest-utils 
@@ -46,9 +46,9 @@ sudo apt-get install -y --no-install-recommends maven
 sudo apt-get install -y --no-install-recommends python3-pip
 sudo pip3 install git-remote-dropbox
 #docker
-sudo apt-get install -y --no-install-recommends docker.io
-sudo gpasswd -a vagrant docker
-sudo apt-get install cgroup-bin
+#sudo apt-get install -y --no-install-recommends docker.io
+#sudo gpasswd -a vagrant docker
+#sudo apt-get install cgroup-bin
 
 
 sudo reboot 
