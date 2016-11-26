@@ -1,8 +1,8 @@
 #see https://blog.versioneye.com/2015/05/05/setting-up-a-dev-environment-with-vagrant/
-#sudo add-apt-repository -y ppa:webupd8team/java
-#sudo apt-get update
-#sudo apt-get -y upgrade
-apt-get install --no-install-recommends -y lubuntu-desktop
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get -y upgrade
+apt-get install --no-install-recommends -y ubuntu-desktop
 sudo apt-get install --no-install-recommends -y virtualbox-guest-dkms 
 sudo apt-get install --no-install-recommends -y virtualbox-guest-utils 
 sudo apt-get install --no-install-recommends -y virtualbox-guest-x11
@@ -21,12 +21,23 @@ sudo apt-get -y install oracle-java8-installer
 if [[ ! -d /opt/eclipse ]]
 then
 	#http://eclipse.mirror.dkm.cz/pub/eclipse/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
-	sudo wget -qO /opt/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz http://eclipse.mirror.dkm.cz/pub/eclipse/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
-	cd /opt/ && sudo tar -zxf /opt/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
+	sudo wget -qO /opt/eclipse.tar.gz 'http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk.tar.gz'
+	cd /opt/ && sudo tar -zxf /opt/eclipse.tar.gz
 fi
 
         sudo wget -qO /opt/lombok.jar https://projectlombok.org/downloads/lombok.jar
-        sudo java -jar /opt/lombok.jar  install /opt/eclipse
+	echo '-javaagent:/opt/lombok.jar' | sudo sh -c 'cat >> /opt/eclipse/eclipse.ini'
+
+
+sudo apt-get install -y --no-install-recommends git
+sudo apt-get install -y --no-install-recommends maven
+sudo apt-get install -y --no-install-recommends python3-pip
+sudo pip3 install git-remote-dropbox
+#docker
+#sudo apt-get install -y --no-install-recommends docker.io
+#sudo gpasswd -a vagrant docker
+#sudo apt-get install cgroup-bin
+
 if [[ ! -f /etc/lightdm/lightdm.conf ]]
 then
        echo seting up autologin
@@ -40,15 +51,6 @@ grep 192.168.0.7 /etc/hosts || echo 192.168.0.7 server-lan >> /etc/hosts
 #I dont know how to change the keyboard System->text entry
 #I don't know how to disable the autolock System->security
 #I don't know how to make it have multiple desktops
-
-sudo apt-get install -y --no-install-recommends git
-sudo apt-get install -y --no-install-recommends maven
-sudo apt-get install -y --no-install-recommends python3-pip
-sudo pip3 install git-remote-dropbox
-#docker
-#sudo apt-get install -y --no-install-recommends docker.io
-#sudo gpasswd -a vagrant docker
-#sudo apt-get install cgroup-bin
 
 echo shutting down so that folders can be mounted correctly. please run vagrant up again
 sudo poweroff 
