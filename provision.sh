@@ -1,6 +1,8 @@
-/vagrant/provision.d/20_desktop.sh
-/vagrant/provision.d/10_guest_additions.sh
-#/vagrant/provision.d/05_wm_ratpoison2.sh
+for i in /vagrant/provision.d/[0-9]*.sh
+do
+	echo $i
+	$i || exit 1
+done
 
 #sudo apt-get install -y --no-install-recommends git
 #sudo apt-get install -y --no-install-recommends maven
