@@ -1,5 +1,7 @@
-for guest additions:
-vagrant plugin install vagrant-vbguest
+for graphical environments the first time I have to run:
+vagrant up && vagrant halt && vagrant up
+
+This will provision it properly. after the first time vagrant up is enough.
 
 following the vagrant up
 on the host box:
